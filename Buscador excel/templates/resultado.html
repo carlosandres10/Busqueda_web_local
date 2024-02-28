@@ -1,0 +1,30 @@
+{% extends 'formulario.html' %}
+
+{% block resultados %}
+    <div class="Container-formulario">
+        <h2>Resultados de la búsqueda:</h2>
+        {% if resultados %}
+            <table>
+                <tr class="Encabezado">
+                    <th>Clave cliente</th>
+                    <th>Nombre contacto</th>
+                    <th>Correo</th>
+                    <th>Telefono Contacto</th>
+                </tr>
+                {% for resultado in resultados %}
+                    <tr>
+                        <td>{{ resultado['Clave'] }}</td>
+                        <td>{{ resultado['Nombre'] }}</td>
+                        <td>{{ resultado['Correo'] }}</td>
+                        <td>{{ resultado['Telefono'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <h2>No se encontraron datos</h2>
+            <div class="Container-img">
+                <img class="img-error" src="/static/img/Error.png" alt="" />
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

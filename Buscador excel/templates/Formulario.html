@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .Container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Estilos del contenedor del formulario de búsqueda */
+        .Container-formulario {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .Container-formulario h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .Container-formulario form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .Container-formulario img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .Container-formulario input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: calc(100% - 90px);
+        }
+
+        .Container-formulario button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #080808;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .Container-formulario button:hover {
+            background-color: #080808;
+        }
+
+        /* Estilos de la tabla y otros elementos */
+        .Resultados {
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .Resultados h2 {
+            color: #333;
+        }
+
+        .Resultados table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .Resultados th, .Resultados td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .Resultados th {
+            background-color: #080808;
+            color: #fff;
+            text-align: left;
+        }
+
+        .Resultados td {
+            text-align: left;
+        }
+
+        .Resultados tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .img-error {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .Container-img {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <!-- Contenedor del formulario de búsqueda -->
+        <div class="Container-formulario">
+            <form action="/Lista" method="post">
+                <img class="Logo" src="/static/img/logo.png" alt="">
+                <h2>Buscar Cliente</h2>
+                <input type="text" required placeholder="Ingrese los digitos" name="nombre">
+                <button value="Lista">Buscar</button>
+            </form>
+        </div>
+
+        <!-- Aquí se mostrará la tabla de resultados -->
+        {% block resultados %}
+            <!-- Contenido de la tabla -->
+        {% endblock %}
+    </div>
+</body>
+</html>
